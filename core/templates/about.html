@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - TalentHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="text-center mb-5">About TalentHub</h1>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Our Mission</h2>
+                    <p class="card-text">
+                        TalentHub was founded with a simple yet powerful mission: to bridge the gap between talented individuals 
+                        and global media companies. We believe that every artist, actor, and creative business deserves the 
+                        opportunity to showcase their work to the world.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">What We Do</h2>
+                    <p class="card-text">
+                        We provide a platform where:
+                    </p>
+                    <ul>
+                        <li>Artists and actors can create professional profiles to showcase their work</li>
+                        <li>Businesses can establish their presence in the creative industry</li>
+                        <li>Media companies can discover and connect with talented individuals</li>
+                        <li>Global opportunities become accessible to everyone</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Our Values</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <i class="fas fa-handshake fa-3x mb-3 text-primary"></i>
+                                <h4>Connection</h4>
+                                <p>Building meaningful relationships in the creative industry</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <i class="fas fa-globe fa-3x mb-3 text-primary"></i>
+                                <h4>Global Reach</h4>
+                                <p>Making opportunities accessible worldwide</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <i class="fas fa-star fa-3x mb-3 text-primary"></i>
+                                <h4>Excellence</h4>
+                                <p>Maintaining high standards in everything we do</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg">Join Our Community</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

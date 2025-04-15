@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Dashboard - TalentHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    {% if profile.profile_picture %}
+                        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    {% else %}
+                        <i class="fas fa-user-circle fa-5x mb-3"></i>
+                    {% endif %}
+                    <h3>{{ profile.user.get_full_name }}</h3>
+                    <p class="text-muted">{{ profile.get_user_type_display }}</p>
+                    <a href="{% url 'profiles:edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4>Portfolio Items</h4>
+                    <a href="{% url 'profiles:add_portfolio_item' %}" class="btn btn-success mb-3">Add New Item</a>
+                    
+                    <div class="row">
+                        {% for item in profile.portfolio_items.all %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.title }}</h5>
+                                    <p class="card-text">{{ item.description|truncatewords:20 }}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{% url 'profiles:edit_portfolio_item' item.pk %}" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="{% url 'profiles:delete_portfolio_item' item.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="col-12">
+                            <p>No portfolio items yet. Add your first item to showcase your work!</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
